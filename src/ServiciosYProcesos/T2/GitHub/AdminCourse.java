@@ -22,6 +22,10 @@ public class AdminCourse extends Course {
     }
     public AdminCourse(AdminCourse source){
         setDuration(source.getDuration());
+        this.documents = new ArrayList<>();
+        for(String s : source.documents){
+            this.documents.add(s);
+        }
         setName(source.getName());
         setTeacher(source.getTeacher());
         this.documents=source.documents;
