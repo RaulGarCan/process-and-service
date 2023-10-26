@@ -9,7 +9,9 @@ public class BusinessCourse extends Course {
         internship that lasts for at least 15 hours
      */
     private String associatedBusiness;
+    private int internship;
     public BusinessCourse(BusinessCourse source){
+        this.internship=source.internship;
         setDuration(source.getDuration());
         associatedBusiness=source.associatedBusiness;
         setName(source.getName());
@@ -18,6 +20,7 @@ public class BusinessCourse extends Course {
     }
     public BusinessCourse(){}
     public BusinessCourse(int internship, String name, String teacher, String associatedBusiness){
+        this.internship=internship;
         setDuration(30+internship);
         setName(name);
         setTeacher(teacher);
