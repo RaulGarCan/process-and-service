@@ -10,19 +10,22 @@ public class AdminCourse extends Course {
      */
     private ArrayList<String> documents;
     public AdminCourse(){}
-    public AdminCourse(String[] documents){
+    public AdminCourse(String[] documents, String name, String teacher){
         setDuration(40);
         this.documents = new ArrayList<>();
         for(String s : documents){
             this.documents.add(s);
         }
+        setName(name);
+        setTeacher(teacher);
+        setId();
     }
     public AdminCourse(AdminCourse source){
         setDuration(source.getDuration());
-        setId();
         setName(source.getName());
         setTeacher(source.getTeacher());
         this.documents=source.documents;
+        setId();
     }
 
     @Override

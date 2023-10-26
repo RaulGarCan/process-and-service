@@ -12,17 +12,17 @@ public class BusinessCourse extends Course {
     public BusinessCourse(BusinessCourse source){
         setDuration(source.getDuration());
         associatedBusiness=source.associatedBusiness;
-        setId();
         setName(source.getName());
         setTeacher(source.getTeacher());
+        setId();
     }
     public BusinessCourse(){}
     public BusinessCourse(int internship, String name, String teacher, String associatedBusiness){
         setDuration(30+internship);
-        setId();
         setName(name);
         setTeacher(teacher);
         this.associatedBusiness=associatedBusiness;
+        setId();
     }
 
     @Override

@@ -18,17 +18,17 @@ public class ITCourse extends Course {
     public ITCourse(ITCourse source){
         setDuration(source.getDuration());
         specialization = source.specialization;
-        setId();
         setName(source.getName());
         setTeacher(source.getTeacher());
+        setId();
     }
     public ITCourse(){}
     public ITCourse(String name, String teacher, Specialization specialization){
         setDuration(specialization.duration);
-        setId();
         setName(name);
         setTeacher(teacher);
         this.specialization = specialization;
+        setId();
     }
 
     @Override
