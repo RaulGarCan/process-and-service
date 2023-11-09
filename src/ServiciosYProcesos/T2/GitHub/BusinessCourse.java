@@ -48,4 +48,20 @@ public class BusinessCourse extends Course {
         BusinessCourse that = (BusinessCourse) o;
         return Objects.equals(associatedBusiness, that.associatedBusiness);
     }
+
+    public String getAssociatedBusiness() {
+        return associatedBusiness;
+    }
+
+    public int getInternship() {
+        return internship;
+    }
+
+    public void setAssociatedBusiness(String associatedBusiness) {
+        this.associatedBusiness = associatedBusiness;
+    }
+
+    public void setInternship(int internship) {
+        this.internship = internship;
+    }
 }

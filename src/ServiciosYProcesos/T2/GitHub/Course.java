@@ -1,5 +1,6 @@
 package ServiciosYProcesos.T2.GitHub;
 
+import java.nio.charset.CoderResult;
 import java.util.Objects;
 
 public class Course {
@@ -19,6 +20,13 @@ public class Course {
     private String teacher;
     private String id;
     private int duration;
+
+    public Course(String name, String teacher, String id, int duration) {
+        this.name = name;
+        this.teacher = teacher;
+        this.id = id;
+        this.duration = duration;
+    }
 
     public void setId() {
         this.id = ""+name.charAt(0)+teacher.charAt(0);
