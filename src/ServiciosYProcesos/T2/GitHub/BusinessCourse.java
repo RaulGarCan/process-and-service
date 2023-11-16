@@ -1,43 +1,59 @@
-package ServiciosYProcesos.T2.GitHub;
+package Exercise1;
 
 import java.util.Objects;
 
-public class BusinessCourse extends Course {
-    /*
-        The BusinessCourse makes its students go to an associated business
-        on an internship. These Course has a duration of 30h with an
-        internship that lasts for at least 15 hours
-     */
-    private String associatedBusiness;
-    private int internship;
-    public BusinessCourse(BusinessCourse source){
-        this.internship=source.internship;
-        setDuration(source.getDuration());
-        associatedBusiness=source.associatedBusiness;
-        setName(source.getName());
-        setTeacher(source.getTeacher());
-        setId();
+public class BusinessCourse extends Course{
+
+    private String businessAssociated;
+    private int durationPractices;
+
+    public BusinessCourse(String name, String id, int duration, String teacherName, String businessAssociated, int durationPractices) {
+        super(name, id, duration, teacherName);
+            this.businessAssociated = businessAssociated;
+
+
+        if (durationPractices>=15){
+            this.durationPractices = durationPractices;
+        }
+
     }
-    public BusinessCourse(){}
-    public BusinessCourse(int internship, String name, String teacher, String associatedBusiness){
-        this.internship=internship;
-        setDuration(30+internship);
-        setName(name);
-        setTeacher(teacher);
-        this.associatedBusiness=associatedBusiness;
-        setId();
+
+    public BusinessCourse(String businessAssociated, int durationPractices) {
+        super();
+        this.setDuration(30);
+        this.businessAssociated = businessAssociated;
+        if (durationPractices>=15){
+            this.durationPractices = durationPractices;
+        }
+    }
+    public BusinessCourse(BusinessCourse businessCourse){
+        super(businessCourse);
+        this.businessAssociated=businessCourse.businessAssociated;
+        this.durationPractices=businessCourse.durationPractices;
+    }
+
+    public String getBusinessAssociated() {
+        return businessAssociated;
+    }
+
+    public void setBusinessAssociated(String businessAssociated) {
+        this.businessAssociated = businessAssociated;
+    }
+
+    public int getDurationPractices() {
+        return durationPractices;
+    }
+
+    public void setDurationPractices(int durationPractices) {
+        this.durationPractices = durationPractices;
     }
 
     @Override
     public String toString() {
-        return super.toString()+"BusinessCourse{" +
-                "associatedBusiness='" + associatedBusiness + '\'' +
+        return super.toString()+" BusinessCourse{" +
+                "businessAssociated='" + businessAssociated + '\'' +
+                ", durationPractices=" + durationPractices +
                 '}';
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return new BusinessCourse(this);
     }
 
     @Override
@@ -46,6 +62,11 @@ public class BusinessCourse extends Course {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         BusinessCourse that = (BusinessCourse) o;
-        return Objects.equals(associatedBusiness, that.associatedBusiness);
+        return durationPractices == that.durationPractices && Objects.equals(businessAssociated, that.businessAssociated);
+    }
+
+    @Override
+    protected Course clone() throws CloneNotSupportedException {
+        return new BusinessCourse(this);
     }
 }

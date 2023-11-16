@@ -1,46 +1,44 @@
-package ServiciosYProcesos.T2.GitHub;
+package Exercise1;
+
+import java.util.Objects;
 
 public class ITCourse extends Course {
-    /*
-        The ITCourse has a specialization that can be either Networking (35h),
-        Programming (50h) and Sysadmin (40h).
-     */
-    private Specialization specialization;
-    enum Specialization{
-        NETWORKING(35),
-        PROGRAMMING(50),
-        SYSADMIN(40);
-        private int duration;
-        Specialization(int duration){
-            this.duration=duration;
+
+    private TypeSpecialization typeSpecialization;
+
+
+    public ITCourse(String name, String id, int duration, String teacherName, TypeSpecialization typeSpecialization) {
+        super(name, id, duration, teacherName);
+        switch (typeSpecialization){
+            case NETWORKING -> this.setDuration(35);
+            case PROGRAMMING -> this.setDuration(50);
+            case SYSADMIN -> this.setDuration(40);
         }
+        this.typeSpecialization = typeSpecialization;
     }
-    public ITCourse(ITCourse source){
-        setDuration(source.getDuration());
-        specialization = source.specialization;
-        setName(source.getName());
-        setTeacher(source.getTeacher());
-        setId();
+
+    public ITCourse(TypeSpecialization typeSpecialization) {
+        super();
+        this.typeSpecialization = typeSpecialization;
     }
-    public ITCourse(){}
-    public ITCourse(String name, String teacher, Specialization specialization){
-        setDuration(specialization.duration);
-        setName(name);
-        setTeacher(teacher);
-        this.specialization = specialization;
-        setId();
+    public ITCourse(ITCourse itCourse){
+        super(itCourse);
+        this.typeSpecialization=itCourse.typeSpecialization;
+    }
+
+    public TypeSpecialization getTypeSpecialization() {
+        return typeSpecialization;
+    }
+
+    public void setTypeSpecialization(TypeSpecialization typeSpecialization) {
+        this.typeSpecialization = typeSpecialization;
     }
 
     @Override
     public String toString() {
-        return super.toString()+"ITCourse{" +
-                "specialization=" + specialization +
+        return super.toString() + " ITCourse{" +
+                "typeSpecialization=" + typeSpecialization +
                 '}';
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return new ITCourse(this);
     }
 
     @Override
@@ -49,6 +47,14 @@ public class ITCourse extends Course {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         ITCourse itCourse = (ITCourse) o;
-        return specialization == itCourse.specialization;
+        return typeSpecialization == itCourse.typeSpecialization;
     }
+
+    @Override
+    protected Course clone() throws CloneNotSupportedException {
+       return new ITCourse(this);
+
+    }
+
+
 }
