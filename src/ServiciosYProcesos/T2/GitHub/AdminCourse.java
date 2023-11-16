@@ -1,47 +1,41 @@
-package ServiciosYProcesos.T2.GitHub;
+package Exercise1;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class AdminCourse extends Course {
-    /*
-        The AdminCourse has a group of documents associated to manage,
-        each identified with a name. The Course has a duration of 40h.
-     */
-    private ArrayList<String> documents;
-    public AdminCourse(){}
-    public AdminCourse(String[] documents, String name, String teacher){
-        setDuration(40);
-        this.documents = new ArrayList<>();
-        for(String s : documents){
-            this.documents.add(s);
-        }
-        setName(name);
-        setTeacher(teacher);
-        setId();
+public class AdminCourse extends Course{
+    ArrayList<String> documents;
+
+
+    public AdminCourse(String name, String id, int duration, String teacherName, ArrayList<String> documents) {
+        super(name, id, duration, teacherName);
+        this.documents = documents;
     }
-    public AdminCourse(AdminCourse source){
-        setDuration(source.getDuration());
-        this.documents = new ArrayList<>();
-        for(String s : source.documents){
-            this.documents.add(s);
-        }
-        setName(source.getName());
-        setTeacher(source.getTeacher());
-        this.documents=source.documents;
-        setId();
+
+    public AdminCourse(ArrayList<String> documents) {
+        super();
+        this.setDuration(40);
+        this.documents = documents;
+    }
+    public AdminCourse(AdminCourse adminCourse){
+        super(adminCourse);
+        this.documents=adminCourse.documents;
+
+    }
+
+    public ArrayList<String> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(ArrayList<String> documents) {
+        this.documents = documents;
     }
 
     @Override
     public String toString() {
-        return super.toString()+"AdminCourse{" +
+        return super.toString()+ " AdminCourse{" +
                 "documents=" + documents +
                 '}';
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return new AdminCourse(this);
     }
 
     @Override
@@ -52,4 +46,9 @@ public class AdminCourse extends Course {
         AdminCourse that = (AdminCourse) o;
         return Objects.equals(documents, that.documents);
     }
+    @Override
+    protected Course clone() throws CloneNotSupportedException {
+        return new AdminCourse(this);
+    }
+
 }
