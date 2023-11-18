@@ -52,4 +52,12 @@ public class AdminCourse extends Course {
         AdminCourse that = (AdminCourse) o;
         return Objects.equals(documents, that.documents);
     }
+
+    public ArrayList<String> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(ArrayList<String> documents) {
+        this.documents = documents;
+    }
 }

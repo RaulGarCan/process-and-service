@@ -51,4 +51,12 @@ public class ITCourse extends Course {
         ITCourse itCourse = (ITCourse) o;
         return specialization == itCourse.specialization;
     }
+
+    public Specialization getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(Specialization specialization) {
+        this.specialization = specialization;
+    }
 }
