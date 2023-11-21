@@ -3,7 +3,7 @@ package ServiciosYProcesos.T2.GitHub;
 import java.nio.charset.CoderResult;
 import java.util.Objects;
 
-public class Course {
+public abstract class Course {
     /*
         Create a class to represent an online Course. Each course has a name, an ID, a duration and a teacher.
         Consider these restrictions and add the following functionalities:
